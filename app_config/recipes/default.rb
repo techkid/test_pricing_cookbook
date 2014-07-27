@@ -6,6 +6,6 @@ node[:deploy].each do |application, deploy|
     owner deploy[:user]
     group deploy[:group]
     variables(:data => (deploy[:mws] || {}), :environment => deploy[:rails_env])
-  end
+  end.run_action(:create)
 
 end 
