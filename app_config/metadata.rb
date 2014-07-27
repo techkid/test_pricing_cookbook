@@ -1,0 +1,5 @@
+name        "app_config"
+description "eh, lets figure out that Chef+OpsWorks"
+maintainer  "Laslo Derke"
+license     "GPL v3"
+version     "0.0.1"
