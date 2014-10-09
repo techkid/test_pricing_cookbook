@@ -29,7 +29,7 @@ template "nginx.conf" do
   mode 0644
 end
 
-include_recipe "pe-nginx:service"
+include_recipe "pe-nginx::service"
 service "nginx" do
   action [ :enable, :start ]
 end
