@@ -1,4 +1,4 @@
-application_name = "pe"
+application_name = "pricing_engine"
 force_default[:deploy][:target_application] = application_name
 force_default[:deploy][application_name][:restart_command] = "../../shared/scripts/unicorn clean-restart"
 force_default[:deploy][application_name][:service] = "unicorn"
