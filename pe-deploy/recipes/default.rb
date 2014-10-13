@@ -136,7 +136,7 @@ if data[:scm] && data[:scm][:scm_type] != 'other'
           :environment => node[:deploy][application][:rails_env]
         )
         only_if do
-          deploy[:database][:host].present?
+          data[:database][:host].present?
         end
       end.run_action(:create)
       run_callback_from_file("#{release_path}/deploy/before_migrate.rb")
