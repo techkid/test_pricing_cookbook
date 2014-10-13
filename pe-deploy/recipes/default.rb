@@ -1,11 +1,9 @@
+Chef::Log.info("Deploying")
+
 include_recipe "dependencies"
 
 application = node[:deploy][:target_application]
 data = node[:deploy][application]
-
-opsworks_deploy_user do
-  deploy_data data
-end
 
 opsworks_deploy_dir do
   user data[:user]
