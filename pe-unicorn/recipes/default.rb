@@ -1,4 +1,4 @@
-Chef::Log.debug("Setting up Unicorn")
+Chef::Log.info("Setting up Unicorn")
 
 ruby_block "ensure only our unicorn version is installed by deinstalling any other version" do
   block do

@@ -1,4 +1,4 @@
-Chef::Log.debug("Setting up Nginx")
+Chef::Log.info("Setting up Nginx")
 package "nginx"
 
 directory node[:nginx][:dir] do

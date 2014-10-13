@@ -57,10 +57,3 @@ default[:nginx][:gzip_types] = [
 ]
 
 default[:nginx][:server_names_hash_bucket_size] = 64
-
-=begin
-default[:nginx][:proxy_read_timeout] = 60
-default[:nginx][:proxy_send_timeout] = 60
-=end
-
-

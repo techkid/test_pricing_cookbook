@@ -1,1 +1,1 @@
-Chef::Log.debug("Setting node attributes")
+Chef::Log.info("Setting node attributes")

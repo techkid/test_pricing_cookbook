@@ -1,0 +1,25 @@
+upstream unicorn_<%= @data[:domains].first %> {
+ server unix:<%= @data[:deploy_to]%>/shared/sockets/unicorn.sock fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name <%= @data[:domains].join(" ") %> <%= node[:hostname] %>;
+
+  root <%= @data[:absolute_document_root] %>;
+  access_log <%= node[:nginx][:log_dir] %>/<%= @data[:domains].first %>.access.log;
+
+  location ~ \.(php)$ {
+    deny all;
+  }
+
+  try_files $uri /public/maintenance.html @unicorn;
+
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header  X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://unicorn_<%= @data[:domains].first %>;
+  }
+}
