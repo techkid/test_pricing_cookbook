@@ -161,7 +161,7 @@ template "/etc/logrotate.d/opsworks_app_#{application}" do
   owner "root"
   group "root"
   mode 0644
-  variables(:log_dirs => ["#{deploy[:deploy_to]}/shared/log"])
+  variables(:log_dirs => ["#{data[:deploy_to]}/shared/log"])
 end
 
 
