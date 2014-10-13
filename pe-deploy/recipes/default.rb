@@ -2,7 +2,7 @@ Chef::Log.info("Deploying")
 
 include_recipe "dependencies"
 
-application = node[:deploy][:target_application]
+application = node[:deploy_target]
 data = node[:deploy][application]
 
 opsworks_deploy_dir do

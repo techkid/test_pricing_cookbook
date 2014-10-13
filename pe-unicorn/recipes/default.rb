@@ -6,7 +6,7 @@ ruby_block "ensure only our unicorn version is installed by deinstalling any oth
   end
 end
 
-application = node[:deploy][:target_application]
+application = node[:deploy_target]
 data = node[:deploy][application]
 
 #--------
