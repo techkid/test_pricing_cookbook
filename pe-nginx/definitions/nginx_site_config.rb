@@ -6,6 +6,7 @@ define :nginx_site_config, template: "unicorn_site.erb", enable: true do
   template "#{node[:nginx][:dir]}/sites-available/#{data[:application]}" do
     Chef::Log.info("Generating Nginx site template for #{data[:application].inspect}")
     source params[:template]
+    cookbook "pe-nginx"
     owner "root"
     group "root"
     mode 0644
