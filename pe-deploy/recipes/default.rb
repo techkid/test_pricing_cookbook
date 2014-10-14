@@ -93,7 +93,7 @@ if data[:scm] && data[:scm][:scm_type] != 'other'
     symlink_before_migrate(data[:symlink_before_migrate])
     symlinks(data[:symlinks]) unless data[:symlinks].nil?
     action data[:action]
-    restart_command "sleep #{data[:sleep_before_restart]} && #{data[:restart_command]}"
+    restart_command '../../shared/scripts/unicorn clean-restart'
 
     case data[:scm][:scm_type].to_s
     when 'git'

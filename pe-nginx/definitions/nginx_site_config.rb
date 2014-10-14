@@ -1,4 +1,4 @@
-define :nginx_site_config, template: "unicorn_site.erb", enable: true do
+define :nginx_site_config, template: "unicorn_site.erb", enabled: true do
   include_recipe "pe-nginx::service"
 
   data = params[:data]
