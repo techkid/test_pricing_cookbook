@@ -93,7 +93,12 @@ if data[:scm] && data[:scm][:scm_type] != 'other'
     symlink_before_migrate(data[:symlink_before_migrate])
     symlinks(data[:symlinks]) unless data[:symlinks].nil?
     action data[:action]
-    restart_command '../../shared/scripts/unicorn clean-restart'
+
+#-------
+Chef::Log.info "restart command: #{shared_path}/scripts/unicorn clean-restart"
+#-------
+
+    restart_command "#{shared_path}/scripts/unicorn clean-restart"
 
     case data[:scm][:scm_type].to_s
     when 'git'
