@@ -72,10 +72,6 @@ ruby_block "change HOME to #{data[:home]} for source checkout" do
   end
 end
 
-
-
-#-----------------
-
 if data[:scm] && data[:scm][:scm_type] != 'other'
   Chef::Log.debug("Checking out source code of application #{application} with type #{data[:application_type]}")
   deploy data[:deploy_to] do
@@ -93,11 +89,6 @@ if data[:scm] && data[:scm][:scm_type] != 'other'
     symlink_before_migrate(data[:symlink_before_migrate])
     symlinks(data[:symlinks]) unless data[:symlinks].nil?
     action data[:action]
-
-#-------
-Chef::Log.info "restart command: #{shared_path}/scripts/unicorn clean-restart"
-#-------
-
     restart_command "#{shared_path}/scripts/unicorn clean-restart"
 
     case data[:scm][:scm_type].to_s
