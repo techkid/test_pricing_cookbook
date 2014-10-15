@@ -7,7 +7,7 @@ Chef::Log.info("Node suders: #{node[:sudoers]}")
 user "dude" do
   supports :manage_home => true
   comment "Random User"
-  gid "www-data sudo"
+  gid ["www-data", "sudo"]
   home "/home/dude"
   shell "/bin/bash"
   password "$1$nq.2kYl7$7BjxRUFwZSHV3Gs./0VnD1"
